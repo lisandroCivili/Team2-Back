@@ -1,0 +1,14 @@
+{
+  "name": "proyectofinal-back-t2",
+  "version": "1.0.0",
+  "description": "Backend proyecto final team 2",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon --exec node index.js"
+  },
+  "keywords": [],
+  "author": "Cynthia Ortiz, Pablo Lopez Sardi, Ramiro Walter Diaz Vaca, Lisandro Civili de la Vega",
+  "license": "ISC"
+}
