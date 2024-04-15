@@ -1,23 +1,24 @@
 import mongoose, {Schema} from 'mongoose'
 
 const usuarioSchema = new Schema({
-    nombreUsuario:{
+    nombreUsuario: {
         type: String,
         required: true,
-        minLength: 2,
-        maxLength: 100,
+        minLength: 5,
+        maxLength: 30,
         unique: true
     },
     email:{
         type: String,
         required: true,
-        unique:true,
-        validate:{
-            validator: (dato)=>{
-                const pattern = /^[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'+/=?^_`{|}~-]+)@(?:[a-z0-9](?:[a-z0-9-][a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
-                return pattern.test(dato)
-            }
-        }
+        unique: true,
+        // validate:{
+        //     validator: (dato)=>{
+        //         const pattern = /^[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'+/=?^_`{|}~-]+)@(?:[a-z0-9](?:[a-z0-9-][a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
+        //         return pattern.test(dato)
+        //     }
+        // }
+        match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     },
     contraseña:{
         type: String,
