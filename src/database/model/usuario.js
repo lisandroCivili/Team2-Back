@@ -11,6 +11,7 @@ const usuarioSchema = new Schema({
     email:{
         type: String,
         required: true,
+        unique:true,
         validate:{
             validator: (dato)=>{
                 const pattern = /^[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'+/=?^_`{|}~-]+)@(?:[a-z0-9](?:[a-z0-9-][a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
@@ -19,13 +20,12 @@ const usuarioSchema = new Schema({
         }
     },
     contraseña:{
+        type: String,
         required: true,
-        minLength: 8,
-        maxLength: 16
     },
     rol:{
       type: String,
-      required: true,  
+      required: true
     }
 
 })

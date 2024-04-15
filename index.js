@@ -14,15 +14,16 @@ app.listen(app.get('port'), ()=>{
     console.log('Estoy en el puerto '+ app.get('port'))
 })
 
-app.get('/nuevo/producto', (req, res)=>{
-    console.log('aqui toy')
-    res.send('na aqui toy')
-})
-
 app.use(cors())
 app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+console.log(__dirname)
+
+app.use(express.static(path.join(__dirname, '/public')))
 
 app.use('/api', routerProductos)
 app.use('/api/usuario', routerUsuarios)
