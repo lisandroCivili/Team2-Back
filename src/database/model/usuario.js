@@ -12,12 +12,6 @@ const usuarioSchema = new Schema({
         type: String,
         required: true,
         unique: true,
-        // validate:{
-        //     validator: (dato)=>{
-        //         const pattern = /^[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'+/=?^_`{|}~-]+)@(?:[a-z0-9](?:[a-z0-9-][a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
-        //         return pattern.test(dato)
-        //     }
-        // }
         match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     },
     contraseña:{
