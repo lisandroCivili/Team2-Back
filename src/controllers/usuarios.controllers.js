@@ -42,7 +42,7 @@ export const login = async (req, res) =>{
                 mensaje:"Correo o password incorrecto"
             })
         }
-        res.status(200).json({mensaje:'El usuario existe', email: usuarioBuscado.email})
+        res.status(200).json({mensaje:'El usuario existe', email: usuarioBuscado.email, usuario: usuarioBuscado.nombreUsuario, rol: usuarioBuscado.rol})
     }catch (error){
         console.error(error);
         res.status(500).json({
