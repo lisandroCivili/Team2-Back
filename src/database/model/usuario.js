@@ -19,13 +19,14 @@ const usuarioSchema = new Schema({
         }
     },
     contraseña:{
+        type: String,
         required: true,
         minLength: 8,
         maxLength: 16
     },
     rol:{
       type: String,
-      required: true,  
+      required: true  
     }
 
 })
