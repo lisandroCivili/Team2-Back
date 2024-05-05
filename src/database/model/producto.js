@@ -34,6 +34,12 @@ const productoSchema = new Schema({
         required: true,
         minLength: 15,
         maxLength: 3000
+    },
+    cantidad:{
+        type: Number,
+        require: true,
+        min: 1,
+        max: 5
     }
 })
 
