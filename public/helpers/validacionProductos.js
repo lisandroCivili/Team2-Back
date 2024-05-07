@@ -1,7 +1,7 @@
 import { check } from "express-validator";
 import resultadoValidaciones from "./resultadoValidaciones.js";
 
-const validacionPedidos = 
+const validacionProductos = 
 [
   check("nombreProducto")
     .notEmpty()
@@ -57,4 +57,4 @@ const validacionPedidos =
 
   (req,res,next)=>resultadoValidaciones(req,res,next)
 ]
-export default validacionPedidos;
+export default validacionProductos;
