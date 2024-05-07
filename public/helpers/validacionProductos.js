@@ -1,11 +1,11 @@
 import { check } from "express-validator";
 import resultadoValidaciones from "./resultadoValidaciones.js";
 
-const validacionUsuarios = 
+const validacionPedidos = 
 [
   check("nombreUsuario")
     .notEmpty()
-    .withMessage("El nombre de usuario es obligatorio")
+    .withMessage("El nombre de producto es obligatorio")
     .isLength({
         min:3, 
         max:30
@@ -49,4 +49,4 @@ const validacionUsuarios =
 
 (req,res,next)=>resultadoValidaciones(req,res,next)
 ]
-export default validacionUsuarios;
+export default validacionPedidos;
