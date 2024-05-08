@@ -1,23 +1,46 @@
-import mongoose from 'mongoose';
+import mongoose, {Schema} from 'mongoose'
 
-const pedidoSchema = new mongoose.Schema({
-  productos: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Producto' }],
-  total: {
-    type: Number,
-    required: true
-  },
-  cliente: {
-    type: String,
-    required: true
-  },
-  estado: {
-    type: String,
-    enum: ['pendiente', 'realizado'],
-    default: 'pendiente'
-  }
-});
+const PedidoSchema = new Schema({
+    nombreProducto:{
+        type: String,
+        required: true,
+        minLength: 5,
+        maxLength: 30,
+        unique: true
+    },
+    precio:{
+        type: Number,
+        required: true,
+        min: 1000,
+        max: 7000
+    },
+    categoria:{
+        type: String,
+        required: true,
+        enum: ['Entradas', 'Combo', 'Hamburguesas', 'Papas', 'Sandwichs', 'Bebidas', 'Postre', 'Otros']
+    },
+    email:{
+        type: String,
+        required: true,
+        unique: true,
+        match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    },
+    nombreUsuario: {
+        type: String,
+        required: true,
+        minLength: 5,
+        maxLength: 30,
+        unique: true
+    },
+    numeroPedido: {
+        type: Number,
+        required: true,
+        min: 1,
+        max: 2000,
+        unique: true
+    }
 
-const Pedido = mongoose.model('Pedido', pedidoSchema);
+})
 
-export default Pedido;
-
+const Pedido = mongoose.model('pedido', PedidoSchema)
+export default Pedido
