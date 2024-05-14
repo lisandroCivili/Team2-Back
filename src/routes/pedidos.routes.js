@@ -8,7 +8,7 @@ import {
 
 const router = Router();
 
-router.post("/pedidos", crearPedido);
+router.post("/pedidos/nuevo", crearPedido);
 
 router.get("/pedidos", listarPedidos);
 
