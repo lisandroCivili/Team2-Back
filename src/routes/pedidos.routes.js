@@ -4,16 +4,13 @@ import {
   listarPedidos,
   marcarPedidoRealizado,
   eliminarPedido,
-} from "../controllers/pedido.controllers.js";
+} from "../controllers/pedidos.controllers.js";
 
 const router = Router();
 
-router.post("/pedidos/nuevo", crearPedido);
+router.route("/pedidos/nuevo").post(crearPedido);
 
-router.get("/pedidos", listarPedidos);
+router.route("/pedidos").get(listarPedidos);
 
-router.put("/pedidos/:id", marcarPedidoRealizado);
-
-router.delete("/pedidos/:id", eliminarPedido);
-
+router.route("/pedidos/:id").put(marcarPedidoRealizado).delete(eliminarPedido)
 export default router;
