@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url';
 import './src/database/database.js'
 import routerProductos from './src/routes/productos.routes.js'
 import routerUsuarios from './src/routes/usuarios.routes.js'
+import routerPedidos from './src/routes/pedidos.routes.js'
 
 const app = express()
 app.set('port', process.env.PORT || 4009)
@@ -27,3 +28,4 @@ app.use(express.static(path.join(__dirname, '/public')))
 
 app.use('/api', routerProductos)
 app.use('/api/usuario', routerUsuarios)
+app.use('/api/pedidos', routerPedidos)
