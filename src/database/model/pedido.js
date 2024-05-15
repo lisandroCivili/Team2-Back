@@ -3,7 +3,7 @@ import mongoose, {Schema} from 'mongoose'
 const PedidoSchema = new Schema({
     email:{
         type: String,
-        required: true,
+        // required: true,
         unique: true,
         match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     },
