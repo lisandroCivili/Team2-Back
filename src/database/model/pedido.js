@@ -49,7 +49,7 @@ const PedidoSchema = new Schema({
         match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     },
     productos: [ProductoPedidoSchema],
-    precio:{
+    precioTotal:{
         type: Number,
         required: true,
         min: 1000
