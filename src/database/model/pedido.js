@@ -5,8 +5,7 @@ const ProductoPedidoSchema = new Schema({
         type: String,
         required: true,
         minLength: 5,
-        maxLength: 30,
-        unique: true
+        maxLength: 30
     },
     precio:{
         type: Number,
@@ -47,11 +46,10 @@ const PedidoSchema = new Schema({
     email:{
         type: String,
         required: true,
-        unique: true,
         match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     },
     productos: [ProductoPedidoSchema],
-    precioTotal:{
+    precio:{
         type: Number,
         required: true,
         min: 1000
