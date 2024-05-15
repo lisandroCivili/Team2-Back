@@ -8,7 +8,7 @@ import {
 
 const router = Router();
 
-router.route("/pedidos/nuevo").post(crearPedido);
-router.route("/pedidos").get(listarPedidos);
-router.route("/pedidos/:id").put(marcarPedidoRealizado).delete(eliminarPedido)
+router.route("/nuevo").post(crearPedido);
+router.route("/").get(listarPedidos);
+router.route("/:id").put(marcarPedidoRealizado).delete(eliminarPedido)
 export default router;
