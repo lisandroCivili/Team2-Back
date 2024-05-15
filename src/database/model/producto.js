@@ -37,7 +37,7 @@ const productoSchema = new Schema({
     },
     cantidad:{
         type: Number,
-        require: true,
+        required: true,
         min: 1,
         max: 5
     }
