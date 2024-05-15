@@ -2,8 +2,8 @@ import Pedido from "../database/model/pedido.js";
 
 export const crearPedido = async (req, res) => {
     try {
-        const { productos, precioTotal, email } = req.body;
-        const nuevoPedido = new Pedido({ productos, precioTotal, email, estado: "pendiente" });
+        const { productos, precioTotal, email, estado } = req.body;
+        const nuevoPedido = new Pedido({ productos, precioTotal, email, estado});
         await nuevoPedido.save();
         res.status(201).json({ mensaje: "Pedido creado correctamente", pedido: nuevoPedido });
     } catch (error) {
