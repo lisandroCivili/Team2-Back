@@ -41,7 +41,7 @@ const ProductoPedidoSchema = new Schema({
         max: 5
     }
 });
-
+ProductoPedidoSchema.index({ nombreProducto: 1 }, { unique: false });
 const PedidoSchema = new Schema({
     email:{
         type: String,
@@ -59,6 +59,6 @@ const PedidoSchema = new Schema({
         required: true
     }
 })
-
+PedidoSchema.index({ email: 1 }, { unique: false });
 const Pedido = mongoose.model('pedido', PedidoSchema)
 export default Pedido
