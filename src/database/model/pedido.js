@@ -1,34 +1,46 @@
 import mongoose, {Schema} from 'mongoose'
 
 const ProductoPedidoSchema = new Schema({
-    _id: {
+    nombreProducto:{
         type: String,
-        required: true
+        required: true,
+        minLength: 5,
+        maxLength: 30,
+        unique: true
     },
-    nombreProducto: {
-        type: String,
-        required: true
-    },
-    precio: {
+    precio:{
         type: Number,
-        required: true
+        required: true,
+        min: 1000,
+        max: 7000
     },
-    imagen: {
+    imagen:{
         type: String,
-        required: true
+        required: true,
+        validate:{
+            validator: (dato)=>{
+                const pattern = /^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|gif|png)$/
+                return pattern.test(dato)
+            }
+        }
     },
-    categoria: {
+    categoria:{
         type: String,
-        required: true
+        required: true,
+        enum: ['Entradas', 'Combo', 'Hamburguesas', 'Papas', 'Sandwichs', 'Bebidas', 'Postre', 'Otros']
     },
-    detalle: {
+    detalle:{
         type: String,
-        required: true
+        required: true,
+        minLength: 15,
+        maxLength: 3000
     },
-    cantidad: {
+    cantidad:{
         type: Number,
-        required: true
-    },
+        required: true,
+        min: 1,
+        max: 5
+    }
 });
 
 const PedidoSchema = new Schema({
