@@ -5,6 +5,6 @@ import validacionUsuario from "../helpers/validacionUsuario.js";
 const router = Router();
 router.route('/').post(login)
 router.route('/nuevo').post([validacionUsuario],crearUsuario)
-router.route('/').get(listarUsuarios)
+router.route('/listarUsuarios').get(listarUsuarios)
 
 export default router
