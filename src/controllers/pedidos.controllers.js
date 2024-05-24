@@ -24,32 +24,6 @@ export const listarPedidos = async (req, res) => {
 };
 
 
-export const marcarPedidoRealizado = async (req, res) => {
-    try {
-        const pedidoId = req.params.id;
-        const pedido = await Pedido.findById(pedidoId);
-        
-        if (!pedido) {
-            return res.status(404).json({ mensaje: "Pedido no encontrado" });
-        }
-
-      
-        if (pedido.estado === 'realizado') {
-            return res.status(400).json({ mensaje: "El pedido ya está marcado como realizado" });
-        }
-
-      
-        pedido.estado = 'realizado';
-        await pedido.save();
-
-        res.status(200).json({ mensaje: "Estado del pedido modificado a 'realizado'", pedido });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ mensaje: "Error al modificar el estado del pedido", error: error.message });
-    }
-};
-
-
 export const eliminarPedido = async (req, res) => {
     try {
         const pedidoId = req.params.id;
