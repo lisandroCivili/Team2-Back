@@ -10,4 +10,5 @@ const router = Router();
 
 router.route("/nuevo").post([validacionPedidos],crearPedido);
 router.route("/").get(listarPedidos);
+router.route("/:id").delete(eliminarPedido);
 export default router;
