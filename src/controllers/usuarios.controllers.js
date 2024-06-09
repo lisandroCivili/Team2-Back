@@ -63,3 +63,16 @@ export const listarUsuarios = async(req,res)=>{
         });
     }
 }
+
+export const eliminarUsuario = async(req,res)=>{
+    try {
+        const usuarioID = req.params.id;
+        const usuario = await Usuario.findByIdAndDelete(usuarioID);
+        if (!usuario) {
+            return res.status(404).json({ mensaje: "Usuario no encontrado" });
+        }
+        res.status(200).json({ mensaje: "Usuario eliminado correctamente", usuario });
+    } catch (error) {
+        res.status(500).json({ mensaje: "Error al eliminar el usuario", error: error.message });
+    }
+}
